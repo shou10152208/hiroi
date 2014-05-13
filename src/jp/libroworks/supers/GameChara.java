@@ -9,7 +9,7 @@ import jp.libroworks.GraphicsInfo;
 public class GameChara {
 
 	protected BufferedImage img = null;
-	public Point2D.Double position = new Point2D.Double(100,100);
+	public Point2D.Double position = new Point2D.Double(400,100);
 	public Point2D.Double center = new Point2D.Double();
 	public double angle = 0.0;
 	public boolean visible = true;
