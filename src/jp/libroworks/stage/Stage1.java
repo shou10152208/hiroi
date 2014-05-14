@@ -96,8 +96,10 @@ public class Stage1 extends Stage {
 
 	@Override
 	public void init(GraphicsInfo ginfo) {
-		this.player.position.x = 400;
-		this.player.position.y = 520;
+//		this.player.position.x = 400;
+		this.player.position.x = 50;
+//		this.player.position.y = 520;
+		this.player.position.y = 320;
 		this.player.life = true;
 		this.enemy.position.x = 400;
 		this.enemy.position.y = -100;
