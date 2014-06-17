@@ -23,9 +23,9 @@ public class Stage1 extends Stage {
 	public static final int MAX_BULLETS_E = 200;
 	private ArrayList<BulletChara> bullets_e =
 			new ArrayList<BulletChara>(MAX_BULLETS_E);
-	public static final int MAX_BULLETS_J = 20;
-	private ArrayList<BulletChara> bullets_j =
-			new ArrayList<BulletChara>(MAX_BULLETS_J);
+//	public static final int MAX_BULLETS_J = 20;　自機からの弾の発射
+//	private ArrayList<BulletChara> bullets_j =
+//			new ArrayList<BulletChara>(MAX_BULLETS_J);
 	private ArrayList<BufferedImage> img_bullets =
 			new ArrayList<BufferedImage>();
 	public static final int REDBULLET_E = 0;
@@ -87,18 +87,18 @@ public class Stage1 extends Stage {
 				this.bullets_e.get(i).draw(ginfo, this);
 			}
 		}
-		for(int i=0; i<MAX_BULLETS_J; i++){
-			if(this.bullets_j.get(i).visible == true){
-				this.bullets_j.get(i).draw(ginfo, this);
-			}
-		}
+//		for(int i=0; i<MAX_BULLETS_J; i++){  自機からの弾の発射
+//			if(this.bullets_j.get(i).visible == true){
+//				this.bullets_j.get(i).draw(ginfo, this);
+//			}
+//		}
 	}
 
 	@Override
 	public void init(GraphicsInfo ginfo) {
-//		this.player.position.x = 400;
+//		this.player.position.x = 400;　プレイヤー横配置
 		this.player.position.x = 50;
-//		this.player.position.y = 520;
+//		this.player.position.y = 520;　プレイヤー縦配置
 		this.player.position.y = 320;
 		this.player.life = true;
 		this.enemy.position.x = 400;
@@ -109,10 +109,10 @@ public class Stage1 extends Stage {
 		for(int i=0; i<MAX_BULLETS_E; i++){
 			this.bullets_e.add(new BulletChara());
 		}
-		this.bullets_j.clear();
-		for(int i=0; i<MAX_BULLETS_J; i++){
-			this.bullets_j.add(new BulletChara());
-		}
+//		this.bullets_j.clear();
+//		for(int i=0; i<MAX_BULLETS_J; i++){
+//			this.bullets_j.add(new BulletChara());
+//		}
 	}
 
 	@Override
@@ -125,22 +125,22 @@ public class Stage1 extends Stage {
 		return this.img_bullets.get(type);
 	}
 
-	@Override
-	public ArrayList<BulletChara> getBullets_J() {
-		return this.bullets_j;
-	}
+//	@Override
+//	public ArrayList<BulletChara> getBullets_J() {
+//		return this.bullets_j;
+//	}
 
 	@Override
 	public boolean hitTestAll(GraphicsInfo ginfo) {
-		for(int i=0; i<MAX_BULLETS_J; i++){
-			if(this.bullets_j.get(i).visible == true){
-				if(this.bullets_j.get(i).hitTest(this.enemy) == true){
-					this.enemy.life--;
-					this.bullets_j.get(i).setVisible(ginfo, false);
-					SoundBox.singleton.playOneSHot(4);
-				}
-			}
-		}
+//		for(int i=0; i<MAX_BULLETS_J; i++){
+//			if(this.bullets_j.get(i).visible == true){
+//				if(this.bullets_j.get(i).hitTest(this.enemy) == true){
+//					this.enemy.life--;
+//					this.bullets_j.get(i).setVisible(ginfo, false);
+//					SoundBox.singleton.playOneSHot(4);
+//				}
+//			}
+//		}
 		if(this.getEnemy().hitTest(this.player) == true){
 			this.player.life = false;
 			return true;

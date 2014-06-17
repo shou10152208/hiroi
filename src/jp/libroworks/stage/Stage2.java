@@ -134,10 +134,10 @@ public class Stage2 extends Stage {
 		return this.img_bullets.get(type);
 	}
 
-	@Override
-	public ArrayList<BulletChara> getBullets_J() {
-		return this.bullets_j;
-	}
+//	@Override
+//	public ArrayList<BulletChara> getBullets_J() {
+//		return this.bullets_j;
+//	}
 
 	@Override
 	public boolean hitTestAll(GraphicsInfo ginfo) {

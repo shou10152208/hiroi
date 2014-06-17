@@ -10,7 +10,6 @@ import jp.libroworks.shooters.BasicShooter;
 import jp.libroworks.shooters.CrossShooter;
 import jp.libroworks.shooters.RollingShooter;
 import jp.libroworks.shooters.SplatterShooter;
-import jp.libroworks.shooters.TargetShooter;
 import jp.libroworks.shooters.WideShooter;
 import jp.libroworks.supers.Effect;
 import jp.libroworks.supers.GameChara;
@@ -43,7 +42,7 @@ public class BossA extends GameChara {
 		int l = this.patternlist.size();
 		this.patternlist.get(l-1).setNext(this.patternlist.get(1));
 
-		this.size = 90;
+//		this.size = 90;　弾のサイズ
 	}
 	//最後の要素と連結して追加
 	void patternlist_addlast(Pattern pt){
@@ -203,7 +202,7 @@ public class BossA extends GameChara {
 		}
 		@Override
 		public void move(GraphicsInfo ginfo, Stage stage) {
-			if(ginfo.currenttime - this.lastshooting > 300){
+			if(ginfo.currenttime - this.lastshooting > 2000){
 				//TwinShooter.singleton.shoot(ginfo, stage, BossA.this.position);
 				//CrossShooter.singleton.shoot(ginfo, stage, BossA.this.position);
 				//WideShooter.singleton.shoot(ginfo, stage, BossA.this.position);
@@ -226,14 +225,14 @@ public class BossA extends GameChara {
 		}
 		@Override
 		public void move(GraphicsInfo ginfo, Stage stage) {
-			if(ginfo.currenttime - this.lastshooting > 300){
+			if(ginfo.currenttime - this.lastshooting > 2000){
 				RollingShooter.singleton.shoot(ginfo, stage, BossA.this.position);
 				this.lastshooting = ginfo.currenttime;
 			}
-			if(ginfo.currenttime - this.lastshooting2 > 500){
-				TargetShooter.singleton.shoot(ginfo, stage, BossA.this.position);
-				this.lastshooting2 = ginfo.currenttime;
-			}
+//			if(ginfo.currenttime - this.lastshooting2 > 500){
+//				TargetShooter.singleton.shoot(ginfo, stage, BossA.this.position);
+//				this.lastshooting2 = ginfo.currenttime;
+//			}
 		}
 	}
 	//発射3
@@ -245,7 +244,7 @@ public class BossA extends GameChara {
 		}
 		@Override
 		public void move(GraphicsInfo ginfo, Stage stage) {
-			if(ginfo.currenttime - this.lastshooting > 300){
+			if(ginfo.currenttime - this.lastshooting > 2000){
 				CrossShooter.singleton.shoot(ginfo, stage, BossA.this.position);
 				WideShooter.singleton.shoot(ginfo, stage, BossA.this.position);
 				this.lastshooting = ginfo.currenttime;

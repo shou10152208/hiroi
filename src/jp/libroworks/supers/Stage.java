@@ -8,8 +8,8 @@ import jp.libroworks.GraphicsInfo;
 
 public abstract class Stage {
 
-	private double width = 800;
-	private double height = 720;
+	private double width = 780;
+	private double height = 580;
 
 	public abstract GameChara getPlayer();
 	public abstract void loadMedia() throws IOException;
@@ -23,7 +23,7 @@ public abstract class Stage {
 	public abstract ArrayList<BulletChara> getBullets_E();
 
 	//自機の弾のデータを取得する
-	public abstract ArrayList<BulletChara> getBullets_J();
+//	public abstract ArrayList<BulletChara> getBullets_J();
 
 	//弾の画像を取得する
 	public abstract BufferedImage getBulletImage(int type);
