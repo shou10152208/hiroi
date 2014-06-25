@@ -18,7 +18,9 @@ import jp.libroworks.supers.Stage;
 
 public class MyGameDisplay extends GameDisplay {
 
-	GameDisplay title, main, over, clear;
+	GameDisplay title, main;
+	public GameDisplay over;
+	GameDisplay clear;
 	private Font mfont = new Font("Sanserif", Font.BOLD, 50);
 	ArrayList<Stage> stagelist = new ArrayList<Stage>();
 	Stage stage = null;
@@ -58,7 +60,7 @@ public class MyGameDisplay extends GameDisplay {
 		public void show(GraphicsInfo ginfo) {
 			ginfo.g.drawImage(this.img_title, 0, 0, null);
 
-			ginfo.g.setColor(Color.CYAN);
+			ginfo.g.setColor(Color.RED);
 			ginfo.g.setFont(MyGameDisplay.this.mfont);
 			String str = "PUSH SPACE";
 			FontMetrics fm = ginfo.g.getFontMetrics();
@@ -75,13 +77,25 @@ public class MyGameDisplay extends GameDisplay {
 
 		@Override
 		public void loadMedia() throws IOException {
-			this.img_title = ImageIO.read(new File("gazou/m1-0.jpg"));
+			this.img_title = ImageIO.read(new File("gazou/hiroi1.jpg"));
 		}
 	}
 
 	//ゲーム本編
 	class  MyGameMain extends GameDisplay{
 		@Override
+//		public void show(GraphicsInfo ginfo) {
+//			MyGameDisplay.this.stage.draw(ginfo);
+//			if(MyGameDisplay.this.stage.hitTestAll(ginfo) == true){
+//				GameDisplay.current = MyGameDisplay.this.over;
+//				GameDisplay.current.setStartTime(ginfo.currenttime);
+//				SoundBox.singleton.playOneSHot(0);
+//			}
+//			if(MyGameDisplay.this.stage.isBossLiving() == false){
+//				GameDisplay.current = MyGameDisplay.this.clear;
+//				GameDisplay.current.setStartTime(ginfo.currenttime);
+//				SoundBox.singleton.playOneSHot(3);
+//			}
 		public void show(GraphicsInfo ginfo) {
 			MyGameDisplay.this.stage.draw(ginfo);
 			if(MyGameDisplay.this.stage.hitTestAll(ginfo) == true){
@@ -94,7 +108,27 @@ public class MyGameDisplay extends GameDisplay {
 				GameDisplay.current.setStartTime(ginfo.currenttime);
 				SoundBox.singleton.playOneSHot(3);
 			}
+		if(ginfo.currenttime - this.starttime > 5000){
+			GameDisplay.current = MyGameDisplay.this.over;
 		}
+		}
+
+//		public void setTime(long st ,long ls){
+//			this.starttime = st;
+//			this.endtime = ls;
+//			ls =10;
+//			for(st = 0 ; st >ls ; st++){
+//				GameDisplay.current = MyGameDisplay.this.over;
+//
+//			}
+//		}
+
+//		public void setEndTime(long ls){ //ゲームの終了時間（になるかな）
+//			this.endtime = ls;
+//		    if(starttime<180){
+//		    	GameDisplay.current = MyGameDisplay.this.over;
+//		    }
+//		}
 
 		@Override
 		public void loadMedia() throws IOException {

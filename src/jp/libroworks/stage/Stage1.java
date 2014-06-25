@@ -46,7 +46,7 @@ public class Stage1 extends Stage {
 				this.img_chara.getSubimage(0,  0, 48, 48));
 		this.enemy.setImage(
 				this.img_chara.getSubimage(0, 72, 192, 192));
-		this.img_back = ImageIO.read(new File("media/back.jpg"));
+		this.img_back = ImageIO.read(new File("gazou/hiroi2-2.jpg"));
 		this.img_shot = ImageIO.read(new File("media/shot.png"));
 		this.img_bullets.add(this.img_shot.getSubimage(0, 0, 24, 24));
 		this.img_bullets.add(this.img_shot.getSubimage(48, 0, 24, 24));

@@ -50,6 +50,11 @@ public class FirstShooting {
 	void start(){
 		Timer t = new Timer();
 		t.schedule(new RenderTask(), 0, 16);
+//		t.schedule(GameDisplay.current = MyGameDisplay.this.over, 180);
+	}
+	
+	void stop(){
+		
 	}
 
 	long lasttime = System.currentTimeMillis();
