@@ -52,46 +52,11 @@ public class PlayerChara extends GameChara {
 		if(this.position.y > stage.getHeight()){
 			this.position.y = stage.getHeight();
 		}
-//		if(ginfo.keystate[KEY_STATE.Z]){
-//			if(this.shootcount > 6){
-//				if(ginfo.currenttime - this.lastshooting > 500){
-//					this.shootcount = 0;
-//				}
-//			} else if(ginfo.currenttime - this.lastshooting > 50) {
-//				BulletChara bullet = this.searchBullet(stage);
-//				if(bullet == null) return null;
-//				bullet.mover = StraightMover.singleton;
-//				bullet.position.x = this.position.x - 8;
-//				bullet.position.y = this.position.y - 12;
-//				if(this.shootcount % 2 == 0) bullet.position.x += 16;
-//				bullet.vector.x = this.shootvec.x;
-//				bullet.vector.y = this.shootvec.y;
-//				bullet.setImage(stage.getBulletImage(Stage1.BULLET_J));
-//				bullet.setVisible(ginfo, true);
-//
-//				SoundBox.singleton.playOneSHot(2);
-//
-//				this.lastshooting = ginfo.currenttime;
-//				this.shootcount++;
-//			}
-//		}
+
 		return super.draw(ginfo, stage);
 	}
 
-	//空いている弾を探す
-//	public BulletChara searchBullet(Stage stage){
-//		ArrayList<BulletChara> bullets_j = stage.getBullets_J();
-//		int m = bullets_j.size();
-		//空き弾を探す
-//		for(;this.searchidx < m; this.searchidx++){
-//			if(bullets_j.get(this.searchidx).visible == false) {
-//				return bullets_j.get(this.searchidx);
-//			}
-//		}
-		//空きがないときはnullを返して発射キャンセル
-//		this.searchidx = 0;
-//		return null;
-//	}
+
 
 }
 

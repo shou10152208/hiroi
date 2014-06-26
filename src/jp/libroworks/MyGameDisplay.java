@@ -69,6 +69,7 @@ public class MyGameDisplay extends GameDisplay {
 
 			if(ginfo.keystate[KEY_STATE.SPACE] == true){
 				GameDisplay.current = MyGameDisplay.this.main;
+				GameDisplay.current.setStartTime(ginfo.currenttime);
 				MyGameDisplay.this.stagenum = 0;
 				MyGameDisplay.this.stage = stagelist.get(MyGameDisplay.this.stagenum);
 				MyGameDisplay.this.stage.init(ginfo);
@@ -84,18 +85,7 @@ public class MyGameDisplay extends GameDisplay {
 	//ゲーム本編
 	class  MyGameMain extends GameDisplay{
 		@Override
-//		public void show(GraphicsInfo ginfo) {
-//			MyGameDisplay.this.stage.draw(ginfo);
-//			if(MyGameDisplay.this.stage.hitTestAll(ginfo) == true){
-//				GameDisplay.current = MyGameDisplay.this.over;
-//				GameDisplay.current.setStartTime(ginfo.currenttime);
-//				SoundBox.singleton.playOneSHot(0);
-//			}
-//			if(MyGameDisplay.this.stage.isBossLiving() == false){
-//				GameDisplay.current = MyGameDisplay.this.clear;
-//				GameDisplay.current.setStartTime(ginfo.currenttime);
-//				SoundBox.singleton.playOneSHot(3);
-//			}
+
 		public void show(GraphicsInfo ginfo) {
 			MyGameDisplay.this.stage.draw(ginfo);
 			if(MyGameDisplay.this.stage.hitTestAll(ginfo) == true){
@@ -108,27 +98,12 @@ public class MyGameDisplay extends GameDisplay {
 				GameDisplay.current.setStartTime(ginfo.currenttime);
 				SoundBox.singleton.playOneSHot(3);
 			}
-		if(ginfo.currenttime - this.starttime > 5000){
-			GameDisplay.current = MyGameDisplay.this.over;
-		}
+			if(ginfo.currenttime - this.starttime > 5000){
+				GameDisplay.current = MyGameDisplay.this.over;
+				GameDisplay.current.setStartTime(ginfo.currenttime);
+			}
 		}
 
-//		public void setTime(long st ,long ls){
-//			this.starttime = st;
-//			this.endtime = ls;
-//			ls =10;
-//			for(st = 0 ; st >ls ; st++){
-//				GameDisplay.current = MyGameDisplay.this.over;
-//
-//			}
-//		}
-
-//		public void setEndTime(long ls){ //ゲームの終了時間（になるかな）
-//			this.endtime = ls;
-//		    if(starttime<180){
-//		    	GameDisplay.current = MyGameDisplay.this.over;
-//		    }
-//		}
 
 		@Override
 		public void loadMedia() throws IOException {
